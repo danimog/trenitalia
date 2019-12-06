@@ -13,73 +13,83 @@
   <body>
 
     <div class="container">
-      <button>Clicca qui!</button>
+      <div class="row">
+        <div class="col-sm-6">
+          STAZIONE PARTENZA
+          <div class="form-check-P">
+            <input class="form-check-input" type="radio" name="partenza" id="stazionePartenza" value="monterosso" checked>
+            <label class="form-check-label" for="stazione1">Monterosso</label>
+          </div>
+
+          <div class="form-check-P">
+            <input class="form-check-input" type="radio" name="partenza" id="stazionePartenza" value="vernazza" >
+            <label class="form-check-label" for="stazione1">Vernazza</label>
+          </div>
+
+          <div class="form-check-P">
+            <input class="form-check-input" type="radio" name="partenza" id="stazionePartenza" value="corniglia" >
+            <label class="form-check-label" for="stazione1">Corniglia</label>
+          </div>
+
+          <div class="form-check-P">
+            <input class="form-check-input" type="radio" name="partenza" id="stazionePartenza" value="manarola" >
+            <label class="form-check-label" for="stazione1">Manarola</label>
+          </div>
+
+          <div class="form-check-P">
+            <input class="form-check-input" type="radio" name="partenza" id="stazionePartenza" value="riomaggiore" >
+            <label class="form-check-label" for="stazione1">Riomaggiore</label>
+          </div>
+        </div>
+      <div class="col-sm-6">
+          STAZIONE ARRIVO
+          <div class="form-check-A">
+            <input class="form-check-input" type="radio" name="arrivo" id="stazioneArrivo" value="monterosso" >
+            <label class="form-check-label" for="stazione1">Monterosso</label>
+          </div>
+
+          <div class="form-check-A">
+            <input class="form-check-input" type="radio" name="arrivo" id="stazioneArrivo" value="vernazza" >
+            <label class="form-check-label" for="stazione1">Vernazza</label>
+          </div>
+
+          <div class="form-check-A">
+            <input class="form-check-input" type="radio" name="arrivo" id="stazioneArrivo" value="corniglia" >
+            <label class="form-check-label" for="stazione1">Corniglia</label>
+          </div>
+
+          <div class="form-check-A">
+            <input class="form-check-input" type="radio" name="arrivo" id="stazioneArrivo" value="manarola" >
+            <label class="form-check-label" for="stazione1">Manarola</label>
+          </div>
+
+          <div class="form-check-A">
+            <input class="form-check-input" type="radio" name="arrivo" id="stazioneArrivo" value="riomaggiore" checked>
+            <label class="form-check-label" for="stazione1">Riomaggiore</label>
+          </div>
+        </div>
+  
     </div>
 
-    <div id="pippe"></div>
 
+      <button type="button" class="btn btn-primary">Clicca qui!</button>
+      <div id="pippe"></div>
+    
+    </div>
+
+
+    <!-- SCRIPT CARICAMENTO JQUERY e BOOTSTRAP -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-
-<!--script>
-    $(document).ready(function(){
-      $("button").click(function(){
-function createCORSRequest(method, url) {
-  var xhr = new XMLHttpRequest();
-
-  if ("withCredentials" in xhr) {
-    // Check if the XMLHttpRequest object has a "withCredentials" property.
-    // "withCredentials" only exists on XMLHTTPRequest2 objects.
-    xhr.open(method, url, true);
-    
-  } else if (typeof XDomainRequest != "undefined") {
-
-    // Otherwise, check if XDomainRequest.
-    // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
-    xhr = new XDomainRequest();
-    xhr.open(method, url);
-
-  } else {
-
-    // Otherwise, CORS is not supported by the browser.
-    xhr = null;
-
-  }
-  return xhr;
-}
-var url= 'https://www.lefrecce.it/msite/api/solutions?origin=VERNAZZA&destination=RIOMAGGIORE&arflag=A&adate=28/12/2019&atime=13&adultno=1&childno=0&direction=A&frecce=false&onlyRegional=false';
-var xhr = createCORSRequest('GET', url);
-if (!xhr) {
-  throw new Error('CORS not supported');
-}
-
-// Response handlers.
-  xhr.onload = function() {
-    var text = xhr.responseText;
-    var title = getTitle(text);
-    alert('Response from CORS request to ' + url + ': ' + title);
-  };
-
-  xhr.onerror = function() {
-    alert('Woops, there was an error making the request.');
-  };
-
-  xhr.send();
-  
-
-      })
-        })
-</script-->
-
-
 <script>
     $(document).ready(function(){
       $("button").click(function(){
 
-//var myUrl = 'http://www.geoplugin.net/json.gp?ip=216.58.209.68';
+        console.log(document.getElementByClassName("form-check-A").value);
+
 var myUrl = 'https://www.lefrecce.it/msite/api/solutions?origin=VERNAZZA&destination=RIOMAGGIORE&arflag=A&adate=28/12/2019&atime=13&adultno=1&childno=0&direction=A&frecce=false&onlyRegional=false';
 //  But if you make it from a browser, then it will work without problem ...
 
