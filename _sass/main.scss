@@ -1,0 +1,13 @@
+$font-text: 'Raleway', sans-serif;
+
+body {
+  font: 100% $font-text;
+  margin-top: 2em;
+}
+
+
+#result{
+	margin-top: 1em;
+	font: 120% $font-text;
+	line-height: 1.5em;
+}

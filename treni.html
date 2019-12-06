@@ -1,79 +1,82 @@
-<!doctype html>
-<html lang="it">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <title>Orario dei treni</title>
-  </head>
-  <body>
+---
+layout: default
+---
 
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
-          STAZIONE PARTENZA
-          <div class="form-check-P">
-            <input class="form-check-input" type="radio" name="partenza" id="stazionePartenza" value="monterosso" checked>
-            <label class="form-check-label" for="stazione1">Monterosso</label>
+          <div class="col-sm-2">
+            <h6>PARTENZA</h6>
           </div>
-
-          <div class="form-check-P">
-            <input class="form-check-input" type="radio" name="partenza" id="stazionePartenza" value="vernazza" >
-            <label class="form-check-label" for="stazione1">Vernazza</label>
+          <div class="col-sm-10">
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio_levanto" name="stazione_partenza" class="custom-control-input" value="Levanto">
+              <label class="custom-control-label" for="radio_levanto">Levanto</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio_monterosso" name="stazione_partenza" class="custom-control-input" value="Monterosso">
+              <label class="custom-control-label" for="radio_monterosso">Monterosso</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio_vernazza" name="stazione_partenza" class="custom-control-input" value="Vernazza">
+              <label class="custom-control-label" for="radio_vernazza">Vernazza</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio_corniglia" name="stazione_partenza" class="custom-control-input" value="Corniglia">
+              <label class="custom-control-label" for="radio_corniglia">Corniglia</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio_manarola" name="stazione_partenza" class="custom-control-input" value="Manarola">
+              <label class="custom-control-label" for="radio_manarola">Manarola</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio_riomaggiore" name="stazione_partenza" class="custom-control-input" value="Riomaggiore">
+              <label class="custom-control-label" for="radio_riomaggiore">Riomaggiore</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio_laspezia" name="stazione_partenza" class="custom-control-input" value="La Spezia Centrale">
+              <label class="custom-control-label" for="radio_laspezia">La Spezia C.le</label>
+            </div>
           </div>
-
-          <div class="form-check-P">
-            <input class="form-check-input" type="radio" name="partenza" id="stazionePartenza" value="corniglia" >
-            <label class="form-check-label" for="stazione1">Corniglia</label>
-          </div>
-
-          <div class="form-check-P">
-            <input class="form-check-input" type="radio" name="partenza" id="stazionePartenza" value="manarola" >
-            <label class="form-check-label" for="stazione1">Manarola</label>
-          </div>
-
-          <div class="form-check-P">
-            <input class="form-check-input" type="radio" name="partenza" id="stazionePartenza" value="riomaggiore" >
-            <label class="form-check-label" for="stazione1">Riomaggiore</label>
-          </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <h6>ARRIVO</h6>
         </div>
-      <div class="col-sm-6">
-          STAZIONE ARRIVO
-          <div class="form-check-A">
-            <input class="form-check-input" type="radio" name="arrivo" id="stazioneArrivo" value="monterosso" >
-            <label class="form-check-label" for="stazione1">Monterosso</label>
+        <div class="col-sm-10">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="radio_levanto_a" name="stazione_arrivo" class="custom-control-input" value="Levanto">
+            <label class="custom-control-label" for="radio_levanto_a">Levanto</label>
           </div>
-
-          <div class="form-check-A">
-            <input class="form-check-input" type="radio" name="arrivo" id="stazioneArrivo" value="vernazza" >
-            <label class="form-check-label" for="stazione1">Vernazza</label>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="radio_monterosso_a" name="stazione_arrivo" class="custom-control-input" value="Monterosso">
+            <label class="custom-control-label" for="radio_monterosso_a">Monterosso</label>
           </div>
-
-          <div class="form-check-A">
-            <input class="form-check-input" type="radio" name="arrivo" id="stazioneArrivo" value="corniglia" >
-            <label class="form-check-label" for="stazione1">Corniglia</label>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="radio_vernazza_a" name="stazione_arrivo" class="custom-control-input" value="Vernazza">
+            <label class="custom-control-label" for="radio_vernazza_a">Vernazza</label>
           </div>
-
-          <div class="form-check-A">
-            <input class="form-check-input" type="radio" name="arrivo" id="stazioneArrivo" value="manarola" >
-            <label class="form-check-label" for="stazione1">Manarola</label>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="radio_corniglia_a" name="stazione_arrivo" class="custom-control-input" value="Corniglia">
+            <label class="custom-control-label" for="radio_corniglia_a">Corniglia</label>
           </div>
-
-          <div class="form-check-A">
-            <input class="form-check-input" type="radio" name="arrivo" id="stazioneArrivo" value="riomaggiore" checked>
-            <label class="form-check-label" for="stazione1">Riomaggiore</label>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="radio_manarola_a" name="stazione_arrivo" class="custom-control-input" value="Manarola">
+            <label class="custom-control-label" for="radio_manarola_a">Manarola</label>
           </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="radio_riomaggiore_a" name="stazione_arrivo" class="custom-control-input" value="Riomaggiore">
+            <label class="custom-control-label" for="radio_riomaggiore_a">Riomaggiore</label>
+          </div>    
+            <div class="custom-control custom-radio custom-control-inline">
+              <input type="radio" id="radio_laspezia_a" name="stazione_arrivo" class="custom-control-input" value="La Spezia Centrale">
+              <label class="custom-control-label" for="radio_laspezia_a">La Spezia C.le</label>
+            </div>
         </div>
-  
-    </div>
-
+      </div>
 
       <button type="button" class="btn btn-primary">Clicca qui!</button>
-      <div id="pippe"></div>
+      
+      <div id="result"></div>
     
     </div>
 
@@ -88,9 +91,20 @@
     $(document).ready(function(){
       $("button").click(function(){
 
-        console.log(document.getElementByClassName("form-check-A").value);
+        var stazione_partenza = $("input[name='stazione_partenza']:checked").val();
 
-var myUrl = 'https://www.lefrecce.it/msite/api/solutions?origin=VERNAZZA&destination=RIOMAGGIORE&arflag=A&adate=28/12/2019&atime=13&adultno=1&childno=0&direction=A&frecce=false&onlyRegional=false';
+        var stazione_arrivo = $("input[name='stazione_arrivo']:checked").val();
+
+    if (stazione_arrivo == stazione_partenza){
+      alert ("seleziona due stazioni differenti!");
+    }
+
+  /* chiamo le funzioni per conoscere data e orario attuale */
+  now = Date.now();
+  adate = dateConverter(now);
+  atime = timeConverter(now);
+
+var myUrl = 'https://www.lefrecce.it/msite/api/solutions?origin='+stazione_partenza+'&destination='+stazione_arrivo+'&arflag=A&adate='+adate+'&atime='+atime+'&adultno=1&childno=0&direction=A&frecce=false&onlyRegional=false';
 //  But if you make it from a browser, then it will work without problem ...
 
 // However to make it work, we are going to use the cors-anywhere free service to bypass this
@@ -111,11 +125,11 @@ $.ajax({
 function viewJSON (jsonObj) {
 
   var json = jsonObj.responseJSON;
-//    document.getElementById("pippe").innerHTML += JSON.stringify(json);
+//    document.getElementById("result").innerHTML += JSON.stringify(json);
 
-    document.getElementById("pippe").innerHTML += "Partenza: "+json[0].origin;
-    document.getElementById("pippe").innerHTML += "<BR>Arrivo: "+json[0].destination;
-    document.getElementById("pippe").innerHTML += "<BR>Data: "+dateConverter(json[0].departuretime);
+    document.getElementById("result").innerHTML += "<strong>Partenza</strong>: "+json[0].origin;
+    document.getElementById("result").innerHTML += "<BR><strong>Arrivo</strong>: "+json[0].destination;
+    document.getElementById("result").innerHTML += "<BR><strong>Data</strong>: "+dateConverter(json[0].departuretime);
 
     for (var i in json){
       timeP = new Date(json[i].departuretime); 
@@ -123,8 +137,8 @@ function viewJSON (jsonObj) {
       formattedTimeP = timeConverter(timeP);
       formattedTimeA = timeConverter(timeA);
 
-      document.getElementById("pippe").innerHTML += "<br>Orario Partenza: "+formattedTimeP;
-      document.getElementById("pippe").innerHTML += " | Orario Arrivo: "+formattedTimeA;
+      document.getElementById("result").innerHTML += "<br>Orario Partenza: "+formattedTimeP;
+      document.getElementById("result").innerHTML += " | Orario Arrivo: "+formattedTimeA;
 //      console.log("Orario Partenza: "+formattedTimeP);
 //      console.log("Orario Arrivo: "+formattedTimeA);
     }
