@@ -1,0 +1,89 @@
+---
+layout: default
+---
+
+
+    <div class="container">
+
+			<div class="row">
+				<div class="col-sm-6">
+					<!--label class="my-1 mr-2" for="stazione_partenza">Stazione di partenza</label-->
+					<select class="custom-select my-1 mr-sm-2" id="stazione_partenza" name="stazione_partenza">
+						<option selected>Stazione partenza</option>
+						<option value="Levanto">Levanto</option>
+						<option value="Monterosso">Monterosso</option>
+						<option value="Vernazza">Vernazza</option>
+						<option value="Corniglia">Corniglia</option>
+						<option value="Manarola">Manarola</option>
+						<option value="Riomaggiore">Riomaggiore</option>
+						<option value="La Spezia Centrale">La Spezia Centrale</option>
+					</select>
+				</div>
+				<div class="col-sm-6">
+					<!--label class="my-1 mr-2" for="stazione_partenza">Stazione di partenza</label-->
+					<select class="custom-select my-1 mr-sm-2" id="stazione_arrivo">
+						<option selected>Stazione arrivo</option>
+						<option value="Levanto">Levanto</option>
+						<option value="Monterosso">Monterosso</option>
+						<option value="Vernazza">Vernazza</option>
+						<option value="Corniglia">Corniglia</option>
+						<option value="Manarola">Manarola</option>
+						<option value="Riomaggiore">Riomaggiore</option>
+						<option value="La Spezia Centrale">La Spezia Centrale</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="input-append date form_datetime">
+						<label class="my-1 mr-2" for="ora">Seleziona data e orario</label>
+					    <input size="16" type="text" id="ora" value="" readonly>
+					    <span class="add-on"><i class="icon-th"></i></span>
+					</div>
+				</div>
+				<!--div class="col-sm-6">
+					<div class="input-append date form_datetime">
+					    <input size="16" type="text" id="data" value="" readonly>
+					    <span class="add-on"><i class="icon-th"></i></span>
+					</div>
+				</div-->
+			</div>
+			<!--div class="custom-control custom-checkbox my-1 mr-sm-2">
+				<input type="checkbox" class="custom-control-input" id="customControlInline">
+				<label class="custom-control-label" for="customControlInline">Remember my preference</label>
+			</div-->
+			<div class="row">
+				<div class="col-sm-12">
+					<button type="submit" class="btn btn-primary my-1">Submit</button>
+				</div>
+			</div>
+
+    </div>
+
+<!-- SCRIPT CARICAMENTO JQUERY e BOOTSTRAP -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	<script src="{{site.baseurl}}/assets/js/bootstrap-datetimepicker.min.js"></script>
+
+    <script type="text/javascript">
+	    $(".form_datetime").datetimepicker({
+	        format: "dd MM yyyy - hh:i"
+	    });
+	</script>   
+
+	<script>
+		$(document).ready(function(){
+      		$("button").click(function(){
+      			var stazione_partenza = $( "#stazione_partenza" ).val();
+      			var stazione_arrivo = $( "#stazione_arrivo" ).val();
+      			var orario = $( "#ora" ).val();
+      			console.log("parto da: "+stazione_partenza+" arrivo a: "+stazione_arrivo);
+      			console.log("orario selezionato: "+orario);
+      		});
+      	});
+
+	</script>

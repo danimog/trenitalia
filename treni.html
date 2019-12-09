@@ -207,7 +207,7 @@ function dateConverter(UNIX_timestamp){
     
             $.ajax({
               url: proxy + otherUrl,
-              complete:function(responseData){
+              success:function(responseData){
                 json_rit = responseData.responseJSON;
                 console.log(id+" ritardo: "+json_rit['ritardo']);
                 document.getElementById("ritardo"+n).innerHTML = json_rit['ritardo'];
