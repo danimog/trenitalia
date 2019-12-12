@@ -71,7 +71,7 @@ layout: default
 
     <script type="text/javascript">
 	    $(".form_datetime").datetimepicker({
-	        format: "dd mm yyyy - hh:i"
+	        format: "dd.mm.yyyy.hh.i"
 	    });
 	</script>   
 
@@ -81,9 +81,38 @@ layout: default
       			var stazione_partenza = $( "#stazione_partenza" ).val();
       			var stazione_arrivo = $( "#stazione_arrivo" ).val();
       			var orario = $( "#ora" ).val();
+      			
+      			unixDateTime = dateToUnixStamp(orario);
+      			
+      			console.log("unixtime: "+unixDateTime);
       			console.log("parto da: "+stazione_partenza+" arrivo a: "+stazione_arrivo);
-      			console.log("orario selezionato: "+orario);
+      			
+//				formattedTimeP = timeConverter(timeP);
+//      			formattedTimeA = timeConverter(timeA);
+
       		});
       	});
+
+		function dateToUnixStamp(ora){
+			res = ora.split(".");
+			for (var i in res){console.log(res[i]);}
+			var d = new Date(res[2], res[1]-1, res[0], res[3], res[4]);
+			
+			return Math.round(d.getTime()/1000);
+		}
+
+		/* formattazione della data unixtimestamp in formato italiano hh:mm:ss */
+		function timeConverter(UNIX_timestamp){
+		  orario = new Date(UNIX_timestamp).toLocaleTimeString("it-IT")  
+
+		  return orario;
+		}
+
+		/* formattazione della data unixtimestamp in formato italiano gg/mm/aaaa */
+		function dateConverter(UNIX_timestamp){
+		  data = new Date(UNIX_timestamp).toLocaleDateString("it-IT");
+
+		  return data;
+		}
 
 	</script>
