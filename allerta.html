@@ -1,0 +1,52 @@
+---
+layout: default
+---
+
+<h1>Messaggio allerta: </h1>
+<div id="allertameteo"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+  $("#allertameteo").append("<ul></ul>");
+  $.ajax({
+    type: "GET",
+    url: "https://allertaliguria.regione.liguria.it/xml/allertaliguria.xml",
+    dataType: "xml",
+    success: function(xml){
+      var messaggio = $(xml).find('StatoDiAllertaRegionale').attr('livelloAllerta');
+      console.log("allerta: "+messaggio);
+      $("<p></p>").html(messaggio).appendTo("#allertameteo");
+
+      var $msg = $(xml).find('MessaggioMeteoARPAL');
+      var messaggioMeteo = $msg.find('Testo').text();
+      console.log('messaggioMeteo: '+messaggioMeteo);
+//      $("<p></p>").html(messaggioMeteo).appendTo("#allertameteo");
+		var urlMessaggio = "https://allertaliguria.regione.liguria.it/docs/"+$msg.attr('nomeFilePDF');
+		msgMeteo = '<a target="_blank" href="'+urlMessaggio+'">'+messaggioMeteo+'</a>'
+      document.getElementById("allertameteo").innerHTML += msgMeteo;
+
+      var $zonac = $(xml).find('Zona[id="C"]');
+      
+      console.log('zona: '+$zonac.attr('id'));
+
+      
+
+      /*
+      $(xml).find('Zona').each(function(){
+      	var zonac = $(xml).find('Zona').attr('id');
+      	console.log('zona: '+zonac);
+      	if (zonac == "A"){console.log("zona C!");}
+      });
+*/
+
+  },
+  error: function() {
+    alert("An error occurred while processing XML file.");
+  }
+  });
+});
+</script>
