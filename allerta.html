@@ -18,6 +18,19 @@ $(document).ready(function(){
     dataType: "xml",
     success: function(xml){
       var messaggio = $(xml).find('StatoDiAllertaRegionale').attr('livelloAllerta');
+      var $colore = "#00aa00";
+      if (messaggio == "gialla"){
+      	$colore = "yellow"
+      }
+      if (messaggio == "arancione"){
+      	$colore = "orange"
+      }
+      if (messaggio == "rossa"){
+      	$colore = "red"
+      }
+
+      $("#allertameteo").css("background-color", $colore);
+
       console.log("allerta: "+messaggio);
       $("<p></p>").html(messaggio).appendTo("#allertameteo");
 
@@ -33,15 +46,6 @@ $(document).ready(function(){
       
       console.log('zona: '+$zonac.attr('id'));
 
-      
-
-      /*
-      $(xml).find('Zona').each(function(){
-      	var zonac = $(xml).find('Zona').attr('id');
-      	console.log('zona: '+zonac);
-      	if (zonac == "A"){console.log("zona C!");}
-      });
-*/
 
   },
   error: function() {
