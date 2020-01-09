@@ -1,0 +1,149 @@
+---
+layout: mappa
+---
+
+<h1>Segnalazione problemi su sentieri</h1>
+ <div id="mapid"></div>
+
+<hr>
+
+<div class="container">
+
+<!-- FORM IN LINEA -->
+	<form class="needs-validation" id="gform" method="POST" class="pure-form pure-form-stacked" data-email="daniele.moggia@gmail.com" action="https://script.google.com/macros/s/AKfycbyBAkKGelfP3yqg1GTwPboDq2XRrcWQqLw54EzMwGRvZKcRrlM/exec" novalidate >
+
+		<div class="form-row">
+			<div class="col-md-4 mb-3">
+			  <label for="name">Nominativo</label>
+			  <input type="text" class="form-control" id="name" placeholder="Nominativo" required>
+			</div>
+			<div class="col-md-4 mb-3">
+			  <label for="validationCustomEmail">Email</label>
+			  <div class="input-group">
+			    <div class="input-group-prepend">
+			      <span class="input-group-text" id="inputGroupPrepend">@</span>
+			    </div>
+			    <input type="email" class="form-control" id="validationCustomEmail" placeholder="email" aria-describedby="inputGroupPrepend" required>
+			    <div class="invalid-feedback">
+			      Inserisci una email valida!
+			    </div>
+			  </div>
+			</div>
+			<div class="col-md-4 mb-3">
+				<label for="latlng">Lat/Lon</label>
+				<input type="text" class="form-control" id="latlng" placeholder="latlng" required>
+				<div class="valid-feedback">
+					Dato corretto!
+				</div>
+			</div>
+		</div>
+		
+		<div class="form-row">
+			<div class="input-group-prepend">
+		    	<span class="input-group-text">Descrizione</span>
+		  	</div>
+		  	<textarea class="form-control" id="message" aria-label="descrizione"></textarea>
+		</div>
+
+		<div class="form-row">
+			<button class="btn btn-primary" type="submit">INVIA</button>
+		</div>
+  	</form>
+
+<!--
+  <form id="gform" method="POST" class="pure-form pure-form-stacked" data-email="from_email@example.com"
+          action="https://script.google.com/macros/s/AKfycbwM8uwUuGRAnzi7iU6k554gIKjvtKPsfEvsz881wXV8LQ6VMz_1/exec">
+
+
+
+
+        <label for="name">Name: </label>
+        <input id="name" name="name" placeholder="What your Mom calls you" />
+
+        <br>
+
+
+        <label for="message">Message: </label>
+        <textarea id="message" name="message" rows="10"
+                  placeholder="Tell us what's on your mind..."></textarea>
+
+        <br>
+
+        <label for="email"><em>Your</em> Email Address:</label>
+        <input id="email" name="email" type="email" value=""
+               required placeholder="your.name@email.com" />
+
+
+
+        <button class="button-success pure-button button-xlarge">
+            <i class="fa fa-paper-plane"></i>&nbsp;Send
+        </button>
+
+    </form>
+-->
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script data-cfasync="false" type="text/javascript"
+            src="https://cdn.rawgit.com/dwyl/learn-to-send-email-via-google-script-html-no-server/master/form-submission-handler.js">
+</script>
+
+<script>
+	var mymap = L.map('mapid').setView([44.1412, 9.6975], 13);
+
+/* MAPBOX DEFAULT
+	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+	    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+	    maxZoom: 18,
+	    id: 'mapbox/streets-v11',
+	    accessToken: 'pk.eyJ1IjoiZGFuaW1vZyIsImEiOiJjazU2bXYzd2MwMHBqM2VwODB4OWFsbThxIn0.k649E3FDd87NRgiEHpP0Xg'
+	}).addTo(mymap);
+*/
+
+/** Thunderforest MAP - OUTDOOR*/
+	L.tileLayer('https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=727f06842d1e4a478a84cd4795ba5a6f', {
+		attribution: 'Written by <a target="_blank" href="http://www.danielemoggia.it" data-position-to="window">danielemoggia.it</a> | &copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors '
+	}).addTo(mymap);
+
+	function onMapClick(e) {
+	    console.log("Posizione: " + e.latlng.toString());
+	    document.getElementById('latlng').value = getLatLonValue(e.latlng);
+	}
+
+	function getLatLonValue(latlng){
+		var str = latlng.toString();
+		//var value = str.slice(7,25);
+
+		var pos_p = str.indexOf("(");
+		var pos_a = str.indexOf(")");
+
+		var value = str.slice(pos_p+1, pos_a);
+
+		return value;
+	}
+
+	mymap.on('click', onMapClick);
+
+</script>
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
