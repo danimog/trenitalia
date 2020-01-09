@@ -20,16 +20,17 @@
   action="https://script.google.com/macros/s/AKfycbyBAkKGelfP3yqg1GTwPboDq2XRrcWQqLw54EzMwGRvZKcRrlM/exec">
     <!-- change the form action to your script url -->
 
+
     <div class="form-elements">
       <fieldset class="pure-group">
-        <label for="name">Name: </label>
-        <input id="name" name="name" placeholder="What your Mom calls you" />
+        <label for="name">Nominativo: </label>
+        <input id="name" name="name" placeholder="Inserisci il tuo nome" />
       </fieldset>
 
       <fieldset class="pure-group">
         <label for="message">Message: </label>
         <textarea id="message" name="message" rows="10"
-        placeholder="Tell us what's on your mind..."></textarea>
+        placeholder="Descrivi cosa hai trovato o visto"></textarea>
       </fieldset>
 
       <fieldset class="pure-group">
@@ -37,12 +38,21 @@
         <input id="email" name="email" type="email" value=""
         required placeholder="your.name@email.com"/>
         <span class="email-invalid" style="display:none">
-          Must be a valid email address</span>
+          Inserisci un email valida!</span>
       </fieldset>
+      
+      <fieldset class="pure-group">
+       <label for="latlng">Lat/Lon</label>
+        <input type="text" class="form-control" id="latlng" placeholder="latlng" required>
+        <div class="valid-feedback">
+          Dato corretto!
+        </div>
+      </fieldset>
+      
 
-
-      <button >
-        Send</button>
+      <button>
+        Send
+      </button>
     </div>
 
     <!-- Customise the Thankyou Message People See when they submit the form: -->
