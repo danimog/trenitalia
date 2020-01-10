@@ -40,10 +40,15 @@ layout: mappa
       </fieldset>
       
       <fieldset class="pure-group">
-        <label for="latlng">Lat/Lon</label>
-        <input id="latlng" name="latlng" placeholder="Coordinate lat/lon" />
+        <label for="lat">Lat</label>
+        <input id="lat" name="lat" placeholder="Coordinate lat" />
       </fieldset>
-      
+
+      <fieldset class="pure-group">
+        <label for="lon">Lon</label>
+        <input id="lon" name="lon" placeholder="Coordinate lon" />
+      </fieldset>
+            
 
       <button>
         Send
@@ -85,20 +90,33 @@ layout: mappa
 
   function onMapClick(e) {
       console.log("Posizione: " + e.latlng.toString());
-      document.getElementById('latlng').value = getLatLonValue(e.latlng);
+      //document.getElementById('latlng').value = getLatLonValue(e.latlng);
+      document.getElementById('lat').value = getLatValue(e.latlng);
+      document.getElementById('lon').value = getLonValue(e.latlng);
   }
 
-  function getLatLonValue(latlng){
+  function getLatValue(latlng){
     var str = latlng.toString();
-    //var value = str.slice(7,25);
 
     var pos_p = str.indexOf("(");
-    var pos_a = str.indexOf(")");
-
+    var pos_a = str.indexOf(",");
+   
     var value = str.slice(pos_p+1, pos_a);
 
     return value;
   }
+
+  function getLonValue(latlng){
+    var str = latlng.toString();
+
+    var pos_p = str.indexOf(",");
+    var pos_a = str.indexOf(")");
+   
+    var value = str.slice(pos_p+2, pos_a);
+
+    return value;
+  }
+
 
   mymap.on('click', onMapClick);
 
